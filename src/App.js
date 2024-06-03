@@ -16,25 +16,26 @@ function UsersList() {
   return (
     <div>
       <h1>Listado:</h1>
-      <ul>
+      <div className="cards-container">
         {users.map((user, index) => (
-          <li key={index}>{user.name.first}</li>
+          <div className="card" key={index}>
+            <div className="card-content">
+              <img src={user.picture.medium} alt={`${user.name.first} ${user.name.last}`} />
+              <p>{user.name.first} {user.name.last}</p>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <UsersList />
-      </header>
-    </div>
   );
 }
 
 export default App;
+
 
